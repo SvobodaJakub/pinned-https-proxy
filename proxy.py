@@ -61,9 +61,6 @@ def create_ssl_context():
     return myssl
 
 
-myssl = create_ssl_context()
-
-
 def fetch_get(full_url_with_proto_and_port, ssl_context, headers=None):
     code = 200
     api = full_url_with_proto_and_port
