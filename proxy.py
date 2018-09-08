@@ -68,7 +68,7 @@ def fetch_get(full_url_with_proto_and_port, ssl_context, headers=None):
         headers = {}
     request = urllib.request.Request(api, headers=headers, method="GET")
     try:
-        response = urllib.request.urlopen(request, context=ssl_context)
+        response = urllib.request.urlopen(request, context=ssl_context, timeout=7)
     except urllib.error.HTTPError as e:
         code = e.code
         response = e  # https://docs.python.org/3.1/howto/urllib2.html#error-codes
@@ -86,7 +86,7 @@ def fetch_post(full_url_with_proto_and_port, ssl_context, data, headers=None):
         headers = {}
     request = urllib.request.Request(api, headers=headers, data=data, method="POST")
     try:
-        response = urllib.request.urlopen(request, context=ssl_context)
+        response = urllib.request.urlopen(request, context=ssl_context, timeout=7)
     except urllib.error.HTTPError as e:
         code = e.code
         response = e  # https://docs.python.org/3.1/howto/urllib2.html#error-codes
@@ -104,7 +104,7 @@ def fetch_head(full_url_with_proto_and_port, ssl_context, headers=None):
         headers = {}
     request = urllib.request.Request(api, headers=headers, method="HEAD")
     try:
-        response = urllib.request.urlopen(request, context=ssl_context)
+        response = urllib.request.urlopen(request, context=ssl_context, timeout=7)
     except urllib.error.HTTPError as e:
         code = e.code
         response = e  # https://docs.python.org/3.1/howto/urllib2.html#error-codes
